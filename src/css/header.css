@@ -1,0 +1,36 @@
+
+.new-class{
+font-weight: 400;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 5%;
+height: 35px;
+width: 406;
+height: 15;
+gap: 30px;
+
+}
+#search{
+text-align: center;
+border: 1px solid #0000000D;
+width: 387;
+height: 34;
+border-bottom-width: 0.5px;
+padding-top: 6.5px;
+padding-right: 100px;
+padding-bottom: 6.5px;
+padding-left: 10px;
+gap: 10px;
+border-radius: 4px;
+}
+#logo{
+  width: 170px;
+  height: 67.45161437988281px;
+  
+
+}
+.icons{
+  width: 24px;
+  height: 2px;
+  gap: 20px;
+}
