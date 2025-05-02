@@ -23,7 +23,7 @@ const MandalaCards = () => {
         {[1, 2, 3].map((_, index) => (
           <div
             key={index}
-            className="w-[400px] h-[200px] bg-[#FBFBFB] rounded-xl shadow-lg p-6 flex items-center gap-5"
+            className="w-[400px] h-[200px] bg-[#FBFBFB] rounded-xl shadow-md p-6 flex items-center gap-5"
           >
             <img src={LeafIcon} alt="Leaf Icon" className="w-11 h-11" />
             <div>

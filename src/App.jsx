@@ -1,22 +1,23 @@
 import "./css/styles.css"
-import Navbar from "./components/header";
-//import Work from "./components/work";
-import Content from "./components/content";
-import FullScreenGrid from "./components/content2";
-import MandalaCards from "./components/content3";
-import FeaturedProducts from "./components/content4";
-import RecentlyViewed from "./components/content5";
- import Footer from "./components/Footer";
+// import Navbar from "./Landing-Page/header";
+// //import Work from "./components/work";
+// import Content from "./Landing-Page/content";
+// import FullScreenGrid from "./Landing-Page/content2";
+// import MandalaCards from "./Landing-Page/content3";
+// import FeaturedProducts from "./Landing-Page/content4";
+// import RecentlyViewed from "./Landing-Page/content5";
+//  import Footer from "./Landing-Page/Footer";
+import Login from "./Product-Page/Sign";
 const Aerawat =()=>{
   return <>
-    <Navbar/>
+    {/* <Navbar/>
     <Content/>
     <FullScreenGrid/>
     <MandalaCards/>
     <FeaturedProducts/>
     <RecentlyViewed/>
-    <Footer/> 
-    
+    <Footer/>  */}
+    <Login/>
   </>
 }
 export default Aerawat;
