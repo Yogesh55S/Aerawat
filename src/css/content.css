@@ -1,5 +1,4 @@
 .image{
- 
   height: 850px;
 }
 .con{
@@ -11,6 +10,7 @@
     "SOFT" 0,
     "WONK" 0;
 }
+/*----------------------------------content2---------------------------------------------------*/
 .third{
   font-family: "Fraunces", serif;
   font-optical-sizing: auto;
@@ -23,4 +23,15 @@
 }
 .card{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+/*---------------------------------content3----------------------------------------------------*/
+.name{
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 32px;
+  font-style: normal;
+  font-variation-settings:
+    "SOFT" 0,
+    "WONK" 0;
 }

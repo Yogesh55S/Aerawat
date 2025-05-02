@@ -41,7 +41,6 @@ const Content = () => {
           </button>
         </div>
 
-        {/* Floating Vertical Icon Bar */}
         <div className="fixed right-0 top-1/3 flex flex-col bg-[#6a1b1a] text-white shadow-lg z-50">
           <div className="p-4 border-b border-white flex justify-center items-center cursor-pointer hover:bg-[#5a1615]">
             <FaShoppingCart size={20} />

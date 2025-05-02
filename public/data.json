@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "name": "Gold Necklace",
+    "price": "₹50000",
+    "image": "/assets/product.jpg"
+    },
+    {
+    "id": 2,
+    "name": "Diamond Ring",
+    "price": "₹25000",
+    "image": ""
+    },
+    {
+    "id": 3,
+    "name": "Silver Bracelet",
+    "price": "₹15000",
+    "image": ""
+    },
+    {
+    "id": 4,
+    "name": "Pearl Earrings",
+    "price": "₹12000",
+    "image": ""
+    },
+    {
+    "id": 5,
+    "name": "Gold Bangles",
+    "price": "₹30000",
+    "image": ""
+    },
+    {
+    "id": 6,
+    "name": "Ruby Pendant",
+    "price": "₹18000",
+    "image": ""
+    },
+    {
+    "id": 7,
+    "name": "Emerald Necklace",
+    "price": "₹45000",
+    "image": ""
+    },
+    {
+    "id": 8,
+    "name": "Platinum Ring",
+    "price": "₹60000",
+    "image": ""
+    },
+    {
+    "id": 9,
+    "name": "Gold Chain",
+    "price": "₹20000",
+    "image": ""
+    },
+    {
+    "id": 10,
+    "name": "Sapphire Earrings",
+    "price": "₹22000",
+    "image": ""
+    },
+    {
+    "id": 11,
+    "name": "Silver Anklet",
+    "price": "₹8000",
+    "image": ""
+    },
+    {
+    "id": 12,
+    "name": "Diamond Bracelet",
+    "price": "₹35000",
+    "image": ""
+    },
+    {
+    "id": 13,
+    "name": "Gold Earrings",
+    "price": "₹25000",
+    "image": ""
+    },
+    {
+    "id": 14,
+    "name": "Pearl Necklace",
+    "price": "₹40000",
+    "image": ""
+    },
+    {
+    "id": 15,
+    "name": "Ruby Ring",
+    "price": "₹15000",
+    "image": ""
+    },
+    {
+    "id": 16,
+    "name": "Gold Pendant",
+    "price": "₹12000",
+    "image": ""
+    },
+    {
+    "id": 17,
+    "name": "Silver Necklace",
+    "price": "₹10000",
+    "image": ""
+    },
+    {
+    "id": 18,
+    "name": "Platinum Bracelet",
+    "price": "₹55000",
+    "image": ""
+    },
+    {
+    "id": 19,
+    "name": "Emerald Ring",
+    "price": "₹20000",
+    "image": ""
+    },
+    {
+    "id": 20,
+    "name": "Gold Anklet",
+    "price": "₹15000",
+    "image": ""
+    },
+    {
+    "id": 21,
+    "name": "Diamond Necklace",
+    "price": "₹70000",
+    "image": ""
+    },
+    {
+    "id": 22,
+    "name": "Sapphire Pendant",
+    "price": "₹18000",
+    "image": ""
+    },
+    {
+    "id": 23,
+    "name": "Gold Brooch",
+    "price": "₹25000",
+    "image": ""
+    },
+    {
+    "id": 24,
+    "name": "Silver Earrings",
+    "price": "₹9000",
+    "image": ""
+    }
+  ]

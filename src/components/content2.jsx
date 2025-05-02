@@ -23,21 +23,21 @@ const FullScreenGrid = () => {
           
           <div className="w-[658px] h-[300px] rounded-[8px] border border-gray-300 overflow-hidden relative card">
             <img src={cards[0].image} alt="Fine Jewellery" className="w-full h-full object-cover" />
-            <div className="absolute bottom-0 w-full bg-white/80 text-center py-3">
-              <h3 className="text-[#6a1b1a] text-lg font-semibold">{cards[0].title}</h3>
+            <div className="absolute bottom-0 w-full bg-gradient-to-b via-white to-white text-center py-3">
+              <h3 className="text-[#6a1b1a] font-semibold">{cards[0].title}</h3>
             </div>
           </div>
 
           <div className="w-[431px] h-[300px] rounded-[8px] border border-gray-300 overflow-hidden relative card">
             <img src={cards[1].image} alt="Shringaar - A beautiful decorative item" className="w-full h-full object-cover" />
-            <div className="absolute bottom-0 w-full bg-white/80 text-center py-3">
-              <h3 className="text-[#6a1b1a] text-lg font-semibold">{cards[1].title}</h3>
+            <div className="absolute bottom-0 w-full bg-gradient-to-b  via-white to-white text-center py-3">
+              <h3 className="text-[#6a1b1a]  font-semibold">{cards[1].title}</h3>
             </div>
           </div>
 
           <div className="w-[431px] h-[300px] rounded-[8px] border border-gray-300 overflow-hidden relative card">
             <img src={cards[2].image} alt="Kalapatt - A traditional art form" className="w-full h-full object-cover" />
-            <div className="absolute bottom-0 w-full bg-white/80 text-center py-3">
+            <div className="absolute bottom-0 w-full bg-gradient-to-b via-white to-white text-center py-3">
               <h3 className="text-[#6a1b1a] text-lg font-semibold">{cards[2].title}</h3>
             </div>
           </div>
@@ -46,22 +46,22 @@ const FullScreenGrid = () => {
         <div className="flex gap-[10px]">
           <div className="w-[431px] h-[300px] rounded-[8px] border border-gray-300 overflow-hidden relative card">
             <img src={cards[3].image} alt="Crystals - A collection of sparkling gems" className="w-full h-full object-cover" />
-            <div className="absolute bottom-0 w-full bg-white/80 text-center py-3">
-              <h3 className="text-[#6a1b1a] text-lg font-semibold">{cards[3].title}</h3>
+            <div className="absolute bottom-0 w-full bg-gradient-to-b  via-white to-white text-center py-3">
+              <h3 className="text-[#6a1b1a]  font-semibold">{cards[3].title}</h3>
             </div>
           </div>
 
           <div className="w-[431px] h-[300px] rounded-[8px] border border-gray-300 overflow-hidden relative card">
             <img src={cards[4].image} alt="Crystals - A small decorative item" className="w-full h-full object-cover" />
-            <div className="absolute bottom-0 w-full bg-white/80 text-center py-3">
-              <h3 className="text-[#6a1b1a] text-lg font-semibold">{cards[4].title}</h3>
+            <div className="absolute bottom-0 w-full bg-gradient-to-b  via-white to-white text-center py-3">
+              <h3 className="text-[#6a1b1a]  font-semibold">{cards[4].title}</h3>
             </div>
           </div>
 
           <div className="w-[658px] h-[300px] rounded-[8px] border border-gray-300 overflow-hidden relative card">
             <img src={cards[5].image} alt="Treasured Gifts - A collection of valuable items" className="w-full h-full object-cover" />
-            <div className="absolute bottom-0 w-full bg-white/80 text-center py-3">
-              <h3 className="text-[#6a1b1a] text-lg font-semibold">{cards[5].title}</h3>
+            <div className="absolute bottom-0 w-full bg-gradient-to-b  via-white to-white text-center py-3">
+              <h3 className="text-[#6a1b1a]  font-semibold">{cards[5].title}</h3>
             </div>
           </div>
         </div>
