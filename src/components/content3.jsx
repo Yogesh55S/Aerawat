@@ -4,7 +4,7 @@ import LeafIcon from '../assets/leaf-icon.svg';
 import "../css/content.css";
 const MandalaCards = () => {
   return (
-    <div className="relative w-full bg-white py-20 px-12 flex flex-col justify-center items-center">
+    <div className="relative w-full h-4/5 bg-white py-20 px-12 flex flex-col justify-center items-center">
       <p className=" mb-8 name"> Your Purchase Supports</p>
       
       <img

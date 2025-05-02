@@ -11,7 +11,7 @@ const FeaturedProducts = () => {
   }, []);
 
   return (
-    <div className="bg-[#f9f9f9] py-16 px-12 max-w-screen-xl mx-auto ">
+    <div className="bg-[#f9f9f9] py-16 px-12 max-w-screen-xl mx-auto mt-14 ">
       <div className="mb-4 text-gray-400 text-sm">
         Lorem ipsum dolor sit amet consectetur.
       </div>
