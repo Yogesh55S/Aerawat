@@ -9,13 +9,13 @@
     "id": 2,
     "name": "Diamond Ring",
     "price": "₹25000",
-    "image": ""
+    "image": "/assets/img2.jpg"
     },
     {
     "id": 3,
     "name": "Silver Bracelet",
     "price": "₹15000",
-    "image": ""
+    "image": "/assets/insta.png"
     },
     {
     "id": 4,
@@ -142,5 +142,11 @@
     "name": "Silver Earrings",
     "price": "₹9000",
     "image": ""
-    }
+    },
+    {
+      "id": 25,
+      "name": "Silver Earrings",
+      "price": "₹9000",
+      "image": ""
+      }
   ]

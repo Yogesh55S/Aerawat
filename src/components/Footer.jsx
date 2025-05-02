@@ -3,6 +3,7 @@ import logo from "../assets/aerawat.svg";
 import insta from "../assets/insta.png";
 import face from "../assets/face.png";
 import what from "../assets/what.svg";
+import Link from "../assets/link.svg";
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center text-center space-y-10 py-10 bg-gray-100">
@@ -40,17 +41,22 @@ const Footer = () => {
             <img
               src={insta}
               alt="instagram"
-              className="h-10 w-10 transform transition-transform duration-300 hover:scale-110"
+              className="h-15 w-15 transform transition-transform duration-300 hover:scale-110"
             />
             <img
               src={face}
               alt="facebook"
-              className="h-10 w-10 transform transition-transform duration-300 hover:scale-110"
+              className="h-15 w-15 transform transition-transform duration-300 hover:scale-110"
             />
             <img
               src={what}
               alt="whatsapp"
-              className="h-10 w-10 transform transition-transform duration-300 hover:scale-110"
+              className="h-15 w-15 transform transition-transform duration-300 hover:scale-110"
+            />
+            <img
+              src={Link}
+              alt="whatsapp"
+              className="h-15 w-15 transform transition-transform duration-300 hover:scale-110"
             />
           </div>
         </div>
