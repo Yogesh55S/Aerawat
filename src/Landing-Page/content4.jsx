@@ -34,6 +34,12 @@ const FeaturedProducts = () => {
           </div>
         ))}
       </div>
+      <div className="mt-12 flex justify-center">
+        <button className="bg-[#7C1D1D] text-white text-sm font-medium h-14 w-56 rounded-md gap-2 hover:bg-[#5d1515] transition flex items-center justify-center">
+          View All Products
+          <img src={Frame} alt="Logo" className="ml-2" />
+        </button>
+      </div>
     </div>
   );
 };
