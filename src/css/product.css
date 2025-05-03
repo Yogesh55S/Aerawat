@@ -1,0 +1,9 @@
+.productdetails{
+background-color: #6a1b1a;
+color: white;
+width: 50%;
+border-top-right-radius: 60px;
+border-bottom-right-radius: 60px;
+position: relative;
+top: 25%;
+}

@@ -36,7 +36,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex justify-center space-x-50 py-3 text-sm">
+        <div className="flex justify-center space-x-50 py-3 text-sm border-b-1">
           <a href="#" className="hover:underline">Fine Jewellery</a>
           <a href="#" className="hover:underline">Shringaar</a>
           <a href="#" className="hover:underline">Kalapatt</a>

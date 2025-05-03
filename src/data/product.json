@@ -1,5 +1,5 @@
 [
-  { "id": 1, "name": "Gold Necklace", "price": 6200, "size": "6 inches", "image": "/jewelry1.jpg" },
+  { "id": 1, "name": "Gold Necklace", "price": 6200, "size": "6 inches", "image": "../assest/img.jpg" },
   { "id": 2, "name": "Diamond Ring", "price": 4500, "size": "5 inches", "image": "/jewelry2.jpg" },
   { "id": 3, "name": "Silver Anklet", "price": 2100, "size": "4 inches", "image": "/jewelry3.jpg" },
   { "id": 4, "name": "Platinum Bracelet", "price": 7000, "size": "7 inches", "image": "/jewelry4.jpg" },

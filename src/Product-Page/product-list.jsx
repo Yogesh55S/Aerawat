@@ -1,6 +1,8 @@
 import { useState } from "react";
 import productsData from "../data/product.json";
-
+import Footer from "../Landing-Page/Footer";
+import "../css/product.css";
+import Navbar from "../Landing-Page/header";
 const sizes = ["4 inches", "5 inches", "6 inches", "7 inches"];
 
 const ProductList = () => {
@@ -26,8 +28,10 @@ const ProductList = () => {
   };
 
   return (
-    <div className="flex p-10 gap-6 bg-[#ffff] min-h-screen">
-      <aside className="w-1/4 bg-white p-6">
+    <>
+   <Navbar/>
+    <div className="flex p-10 gap-6 bg-[#ffff] ">
+      <aside className=" bg-white p-6 w-[187] h-[405]">
         <h2 className="font-bold mb-4">FILTERS</h2>
 
         <div className="mb-6">
@@ -77,32 +81,32 @@ const ProductList = () => {
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold">All Products</h2>
           <select
-            className="border px-2 py-1 text-sm"
+            className="px-2 py-1 text-sm"
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
           >
-            <option value="">Sort: Default</option>
+            <option value=""> Default</option>
             <option value="lowToHigh">Sort: Low to High</option>
             <option value="highToLow">Sort: High to Low</option>
           </select>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="  overflow-hidden border"
+                className="overflow-hidden border h-[385px] w-[294px]"
               >
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-48 object-cover "
+                  className="w-full h-48 object-cover"
                 />
-                <div className="p-4">
+                <div className="p-4 productdetails">
                   <h3 className="text-sm font-medium">{product.name}</h3>
-                  <p className="text-xs text-gray-500">{product.size}</p>
-                  <p className="font-bold mt-2 text-[#6a1b1a]">₹{product.price}</p>
+                  <p className="text-xs ">{product.size}</p>
+                  <p className="font-bold mt-2 ">₹{product.price}</p>
                 </div>
               </div>
             ))
@@ -113,7 +117,9 @@ const ProductList = () => {
           )}
         </div>
       </main>
-    </div>
+    </div> 
+    <Footer/>
+    </>
   );
 };
 
