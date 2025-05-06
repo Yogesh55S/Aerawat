@@ -37,7 +37,7 @@ const FeaturedProducts = () => {
           <div
             key={product._id}
             className="flex flex-col relative cursor-pointer"
-            onClick={() => handleAddToRecentlyViewed(product)} // Add to recently viewed
+            onClick={() => handleAddToRecentlyViewed(product)} 
           >
             <img
               src={product.image}

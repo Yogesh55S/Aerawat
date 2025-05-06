@@ -7,8 +7,7 @@ import "./css/styles.css"
 //import FeaturedProducts from "./Landing-Page/content4";
 //import RecentlyViewed from "./Landing-Page/content5";
 // import Footer from "./Landing-Page/Footer";
-//import ProductDetail from "./Product-Page/product-overview";
-import OrderConfirmed from "./Product-Page/order-confirm";
+//import ShippingPage from "./Product-Page/checkout";
 
 
 const Aerawat =()=>{
@@ -21,7 +20,7 @@ const Aerawat =()=>{
       <RecentlyViewed/>
     <RecentlyViewed/>
      <Footer/> */}
-    <OrderConfirmed/>
+
   </>
 }
 export default Aerawat;
