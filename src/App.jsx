@@ -4,10 +4,11 @@ import "./css/styles.css"
 //  import Content from "./Landing-Page/content";
 //  import FullScreenGrid from "./Landing-Page/content2";
 // import MandalaCards from "./Landing-Page/content3";
-// import FeaturedProducts from "./Landing-Page/content4";
-// import RecentlyViewed from "./Landing-Page/content5";
+//import FeaturedProducts from "./Landing-Page/content4";
+//import RecentlyViewed from "./Landing-Page/content5";
 // import Footer from "./Landing-Page/Footer";
-import ProductDetail from "./Product-Page/product-overview";
+//import ProductDetail from "./Product-Page/product-overview";
+import OrderConfirmed from "./Product-Page/order-confirm";
 
 
 const Aerawat =()=>{
@@ -16,10 +17,11 @@ const Aerawat =()=>{
      <Content/> 
      <FullScreenGrid/>
      <MandalaCards/> 
-     <FeaturedProducts/>
-     <RecentlyViewed/>
+       <FeaturedProducts/>
+      <RecentlyViewed/>
+    <RecentlyViewed/>
      <Footer/> */}
-    <ProductDetail/>
+    <OrderConfirmed/>
   </>
 }
 export default Aerawat;
