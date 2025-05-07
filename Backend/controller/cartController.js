@@ -1,41 +1,34 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 const Cart = require("../models/cart");
 
+// Add to Cart
 exports.addToCart = async (req, res) => {
   try {
     const { productId, name, price, image, quantity } = req.body;
-    const item = new Cart({ productId, name, price, image, quantity });
-    await item.save();
-    res.status(201).json(item);
-  } catch (err) {
-    res.status(500).json({ message: "Error adding to cart", error: err.message });
-  }
-};
+    const existingItem = await Cart.findOne({ productId });
 
-exports.getCartItems = async (req, res) => {
-  try {
+    if (existingItem) {
+      existingItem.quantity += quantity;
+      await existingItem.save();
+      return res.status(200).json(existingItem);
+    }
+
+    const cartItem = new Cart({ productId, name, price, image, quantity });
+    await cartItem.save();
+
+    res.status(201).json(cartItem);
+    } catch (err) {
+    console.error("Error saving to cart:", err);
+    res.status(500).json({ error: "Failed to save item to cart" });
+    }
+  };
+
+  exports.getCartItems = async (req, res) => {
+    try {
     const items = await Cart.find();
-    res.json(items);
-  } catch (err) {
-    res.status(500).json({ message: "Error fetching cart", error: err.message });
-  }
-};
-
-exports.deleteCartItem = async (req, res) => {
-  try {
-    await Cart.findByIdAndDelete(req.params.id);
-    res.json({ message: "Item removed" });
-  } catch (err) {
-    res.status(500).json({ message: "Error deleting cart item", error: err.message });
-  }
-};
-
-exports.updateQuantity = async (req, res) => {
-  try {
-    const { quantity } = req.body;
-    const updated = await Cart.findByIdAndUpdate(req.params.id, { quantity }, { new: true });
-    res.json(updated);
-  } catch (err) {
-    res.status(500).json({ message: "Error updating quantity", error: err.message });
-  }
-};
+    res.status(200).json(items);
+    } catch (err) {
+    res.status(500).json({ error: "Failed to fetch cart items" });
+    }
+  };

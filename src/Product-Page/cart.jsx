@@ -1,39 +1,34 @@
-import { useState } from "react";
-import Navbar from "../Landing-Page/header";
-import Footer from "../Landing-Page/Footer";
-const productsData = [
-  {
-    id: 1,
-    title: "Gold-Plated Chain-Set of 3",
-    price: 5432,
-    qty: 1,
-    image: "/images/img.jpg",
-  },
-  {
-    id: 2,
-    title: "Gold-Plated Chain-Set of 3",
-    price: 5432,
-    qty: 1,
-    image: "/images/img.jpg",
-  },
-  {
-    id: 3,
-    title: "Gold-Plated Chain-Set of 3",
-    price: 5432,
-    qty: 1,
-    image: "/images/img.jpg",
-  },
-  {
-    id: 4,
-    title: "Gold-Plated Chain-Set of 3",
-    price: 5432,
-    qty: 1,
-    image: "/images/img.jpg",
-  },
-];
+import { useState, useEffect } from "react";
+
 
 const CartPage = () => {
-  const [products, setProducts] = useState(productsData);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch cart data from the backend
+    const fetchCartData = async () => {
+      try {
+        const response = await fetch("http://localhost:5001/api/cart");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        if (Array.isArray(data)) {
+          setProducts(data);
+        } else {
+          console.error("Unexpected data format:", data);
+          setProducts([]);
+        }
+      } catch (error) {
+        console.error("Error fetching cart data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCartData();
+  }, []);
 
   const handleQtyChange = (id, newQty) => {
     setProducts((prevProducts) =>
@@ -43,11 +38,14 @@ const CartPage = () => {
     );
   };
 
-  const total = products.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const total = products.reduce((sum, item) => sum + (item.price || 0) * (item.qty || 1), 0);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
-    <Navbar/>
       <div className="p-6 md:p-12 bg-white h-[728px] w-[1177px] mx-auto mt-9">
         <div className="grid md:grid-cols-4 gap-6">
           {/* Left: Cart items */}
@@ -60,7 +58,7 @@ const CartPage = () => {
                   alt={product.title}
                   className="w-20 h-20 object-cover rounded" />
                 <div className="flex-1">
-                  <h2 className="font-semibold">{product.title}</h2>
+                  <h2 className="font-semibold">{product.title || "Unnamed Product"}</h2>
                   <div className="flex items-center gap-2 my-2">
                     <label htmlFor={`qty-${product.id}`}>Qty:</label>
                     <select
@@ -83,7 +81,7 @@ const CartPage = () => {
                   </div>
                 </div>
                 <div className="text-right font-semibold text-lg">
-                  ₹{(product.price * product.qty).toLocaleString()}
+                  ₹{((product.price || 0) * (product.qty || 1)).toLocaleString()}
                 </div>
               </div>
             ))}
@@ -100,10 +98,9 @@ const CartPage = () => {
             <button className="w-full bg-[#661c1c] text-white py-2 px-4 rounded mt-2 hover:bg-[#4d1212]">
               Proceed to Buy
             </button>
-        </div>
+          </div>
         </div>
       </div>
-      <Footer/>
     </>
   );
 };

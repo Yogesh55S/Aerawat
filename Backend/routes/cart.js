@@ -1,12 +1,9 @@
 /* eslint-disable no-undef */
 const express = require("express");
-const { addToCart, getCartItems, deleteCartItem, updateQuantity } = require("../controller/cartController");
-
 const router = express.Router();
+const { addToCart, getCartItems } = require("../controller/cartController");
 
-router.post("/", addToCart);
-router.get("/", getCartItems);
-router.delete("/:id", deleteCartItem);
-router.put("/:id", updateQuantity);
+router.post("/api/cart", addToCart);
+router.get("/api/cart", getCartItems); 
 
 module.exports = router;

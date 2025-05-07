@@ -8,7 +8,7 @@ import FeaturedProducts from "./Landing-Page/content4";
 import RecentlyViewed from "./Landing-Page/content5";
 import Footer from "./Landing-Page/Footer";
 import ProductDetail from "./Product-Page/product-overview";
-
+import CartPage from "./Product-Page/cart";
 const Layout = ({ children }) => {
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -36,6 +36,7 @@ const Aerawat = () => {
         <Routes>
           <Route path="/" element={<><FeaturedProducts /><RecentlyViewed /></>} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<CartPage/>} />
         </Routes>
       </Layout>
     </Router>
