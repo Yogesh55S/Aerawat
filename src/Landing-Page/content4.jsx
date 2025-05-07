@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import Frame from "../assets/Frame.png";
 import "../css/content.css";
+import { useNavigate } from "react-router-dom";
 
 const FeaturedProducts = () => {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/products") // Fetch from backend
+    fetch("http://localhost:5001/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error("Failed to fetch products:", err));
   }, []);
+
+  const handleProductList = (product) => {
+    navigate(`/product/${product._id}`)
+
+  };
 
   const handleAddToRecentlyViewed = (product) => {
     fetch("http://localhost:5001/api/recentlyViewed", {
@@ -22,7 +29,9 @@ const FeaturedProducts = () => {
         price: product.price,
         image: product.image,
       }),
-    }).catch((err) => console.error("Failed to add to recently viewed:", err));
+    }).catch((err) =>
+      console.error("Failed to add to recently viewed:", err)
+    );
   };
 
   return (
@@ -37,7 +46,10 @@ const FeaturedProducts = () => {
           <div
             key={product._id}
             className="flex flex-col relative cursor-pointer"
-            onClick={() => handleAddToRecentlyViewed(product)} 
+            onClick={() => {
+              handleAddToRecentlyViewed(product);
+              handleProductList(product);
+            }}
           >
             <img
               src={product.image}
@@ -51,10 +63,11 @@ const FeaturedProducts = () => {
           </div>
         ))}
       </div>
+
       <div className="mt-12 flex justify-center">
         <button className="bg-[#7C1D1D] text-white text-sm font-medium h-14 w-56 rounded-md gap-2 hover:bg-[#5d1515] transition flex items-center justify-center">
           View All Products
-          <img src={Frame} alt="Logo" className="ml-2" />
+          <img src={Frame} alt="Frame logo" className="ml-2" />
         </button>
       </div>
     </div>

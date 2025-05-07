@@ -10,8 +10,8 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
-app.use("/api/products", require("./routes/product")); // Add product route
-app.use("/api/recentlyViewed", require("./routes/recentlyViewed")); // Add recently viewed route
+app.use("/api/products", require("./routes/product"))
+app.use("/api/recentlyViewed", require("./routes/recentlyViewed")); 
 
 mongoose
   .connect(process.env.MONGO_URI)

@@ -1,6 +1,7 @@
+
 /* eslint-disable no-undef */
 const express = require("express");
-const { getProducts, addProduct } = require("../controller/productController.js");
+const { getProducts, addProduct,getProductById } = require("../controller/productController.js");
 
 const router = express.Router();
 
@@ -9,5 +10,5 @@ router.get("/", getProducts);
 
 // Route to add a new product
 router.post("/", addProduct);
-
+router.get("/:id", getProductById);
 module.exports = router;

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 const Product = require("../models/product");
 
@@ -21,3 +22,12 @@ exports.addProduct = async (req, res) => {
     res.status(500).json({ error: "Failed to add product" });
   }
   }
+  exports.getProductById = async (req, res) => {
+    try {
+      const product = await Product.findById(req.params.id);
+      res.json(product);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: "Product not found" });
+    }
+  };

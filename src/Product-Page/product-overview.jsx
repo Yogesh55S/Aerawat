@@ -1,51 +1,77 @@
-import { useState } from "react";
-import product from "../data/product-overview.json";
+import { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "../css/product.css";
-import Navbar from "../Landing-Page/header";
 import RecentlyViewed from "../Landing-Page/content5";
-import Footer from "../Landing-Page/Footer";
 import { FaPlus } from "react-icons/fa6";
 const ProductDetail = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-
+  useEffect(() => {
+    fetch(`http://localhost:5001/api/products/${id}`)
+      .then(res => res.json())
+      .then(data => setProduct(data));
+  }, [id]);
+  
+  const handleAddToCart = () => {
+    fetch("http://localhost:5001/api/cart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        productId: product._id,
+        name: product.name,
+        price: product.price,
+        image: product.images[0],
+        quantity,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Added to cart:", data);
+        alert("Product added to cart!");
+      })
+      .catch((err) => console.error("Cart error:", err));
+  };
+  
+  if (!product) return <div className="p-10 text-center">Loading...</div>;
   return (
     <>
-   <Navbar/>
     <div className="container mx-auto p-8 mt-20 ">
       <div className="flex flex-col md:flex-row gap-12">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex flex-col items-center">
           <div className="relative w-full">
-            <img
-              src={product.images[selectedImage]}
-              alt="Main"
-              className="w-full h-auto rounded-lg shadow-lg object-cover"
-            />
-          </div>
-          <div className="flex mt-6 gap-3 overflow-x-auto">
-            {product.images.map((img, idx) => (
+            {product.images && product.images[selectedImage] && (
               <img
-                key={idx}
-                src={img}
-                alt={`thumb-${idx}`}
-                onClick={() => setSelectedImage(idx)}
-                className={`w-32 h-32 md:w-24 md:h-24 border-2 rounded-lg cursor-pointer  ${
-                  selectedImage === idx ? "border-red-600" : "border-gray-300"
-                }`}
+                src={product.images[selectedImage]}
+                alt="Main"
+                className="w-full h-auto rounded-lg shadow-lg object-cover"
               />
-            ))}
+            )}
+            {product.images &&
+              product.images.map((img, idx) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt={`thumb-${idx}`}
+                  onClick={() => setSelectedImage(idx)}
+                  className={`w-32 h-32 md:w-24 md:h-24 border-2 rounded-lg cursor-pointer  ${
+                    selectedImage === idx ? "border-red-600" : "border-gray-300"
+                  }`}
+                />
+              ))}
           </div>
         </div>
 
         {/* Details Section */}
         <div className="w-full md:w-1/2">
           <h1 className="text-3xl font-bold text-gray-800">{product.name}</h1>
-          <p className="text-2xl text-red-700 mt-4">₹{product.price.toLocaleString()}</p>
+          <p className="text-2xl text-red-700 mt-4">{product.price.toLocaleString()}</p>
 
           <div className="mt-6">
             <h3 className="text-lg font-semibold text-gray-700">Product Description</h3>
-            <p className="text-gray-600 mt-2 leading-relaxed">{product.description}</p>
+            <p className="text-gray-600 mt-2 leading-relaxed"></p>
           </div>
 
           {/* Quantity Selector */}
@@ -64,10 +90,10 @@ const ProductDetail = () => {
 
           {/* Wishlist and Add to Cart Buttons */}
           <div className="mt-8 flex flex-col md:flex-row gap-4">
-            <button className="flex-1 border border-gray-400 py-3 px-6 rounded-lg text-gray-700 hover:bg-gray-100 transition">
+            <button onClick={handleAddToCart} className="flex-1 border border-gray-400 py-3 px-6 rounded-lg text-gray-700 hover:bg-gray-100 transition">
               🤍 Add to Wishlist
             </button>
-            <button className="flex-1 bg-[#6a1b1a] text-white py-3 px-6 rounded-lg hover:bg-[#704443] transition flex items-center justify-center gap-2">
+            <button  onClick={handleAddToCart}  className="flex-1 bg-[#6a1b1a] text-white py-3 px-6 rounded-lg hover:bg-[#704443] transition flex items-center justify-center gap-2">
               🛒 Add to Cart
             </button>
           </div>
@@ -93,7 +119,6 @@ const ProductDetail = () => {
       </div>
     </div>
 <RecentlyViewed/>
-<Footer/>
      </>
   );
 };
