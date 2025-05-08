@@ -6,7 +6,7 @@ import { FaPlus } from "react-icons/fa6";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -36,7 +36,7 @@ const ProductDetail = () => {
           productId: product._id,
           name: product.name,
           price: product.price,
-          image: product.images && product.images[selectedImage] ? product.images[selectedImage] : null,
+          image: product.images,
           quantity: quantity,
         }),
       });
@@ -47,7 +47,7 @@ const ProductDetail = () => {
       }
 
       alert("Product added to cart successfully!");
-      navigate("/cart"); // Navigate to the cart page
+      navigate("/cart");
     } catch (error) {
       console.error("Error adding to cart:", error);
       alert(error.message || "An error occurred while adding the product to the cart. Please try again.");
