@@ -1,34 +1,34 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // Import useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import "../css/product.css";
 import RecentlyViewed from "../Landing-Page/content5";
-import { FaPlus } from "react-icons/fa6";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    fetch(`http://localhost:5001/api/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(`http://localhost:5001/api/products/${id}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch product");
+        }
+        const data = await response.json();
+        setProduct(data);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+        alert("Failed to load product details. Please try again.");
+      }
+    };
+ 
+    fetchProduct();
   }, [id]);
 
   const handleAddToCart = async () => {
     try {
-      const response = await fetch(`http://localhost:5001/api/products/${id}`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch product details");
-      }
-      const product = await response.json();
-
-      if (!product || !product._id) {
-        throw new Error("Invalid product data received");
-      }
-
       const cartResponse = await fetch("http://localhost:5001/api/cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -36,14 +36,14 @@ const ProductDetail = () => {
           productId: product._id,
           name: product.name,
           price: product.price,
-          image: product.images,
+          image: product.image,
           quantity: quantity,
         }),
       });
 
       if (!cartResponse.ok) {
         const errorData = await cartResponse.json();
-        throw new Error(errorData.message || "Failed to add product to cart");
+        throw new Error(errorData.error || "Failed to add product to cart");
       }
 
       alert("Product added to cart successfully!");
@@ -55,43 +55,34 @@ const ProductDetail = () => {
   };
 
   if (!product) return <div className="p-10 text-center">Loading...</div>;
+
   return (
     <>
-      <div className="container mx-auto p-8 mt-20 ">
+      <div className="container mx-auto p-8 mt-20">
         <div className="flex flex-col md:flex-row gap-12">
           {/* Image Section */}
           <div className="w-full md:w-1/2 flex flex-col items-center">
             <div className="relative w-full">
-              {product.images && product.images[selectedImage] && (
+              {product.image && (
                 <img
-                  src={product.images[selectedImage]}
+                  src={product.image}
                   alt="Main"
                   className="w-full h-auto rounded-lg shadow-lg object-cover"
                 />
               )}
-              {product.images &&
-                product.images.map((img, idx) => (
-                  <img
-                    key={idx}
-                    src={img}
-                    alt={`thumb-${idx}`}
-                    onClick={() => setSelectedImage(idx)}
-                    className={`w-32 h-32 md:w-24 md:h-24 border-2 rounded-lg cursor-pointer  ${
-                      selectedImage === idx ? "border-red-600" : "border-gray-300"
-                    }`}
-                  />
-                ))}
             </div>
           </div>
 
           {/* Details Section */}
           <div className="w-full md:w-1/2">
             <h1 className="text-3xl font-bold text-gray-800">{product.name}</h1>
-            <p className="text-2xl text-red-700 mt-4">{product.price.toLocaleString()}</p>
+            <p className="text-2xl text-red-700 mt-4">
+              ₹{(product.price || 0).toLocaleString()}
+            </p>
 
             <div className="mt-6">
               <h3 className="text-lg font-semibold text-gray-700">Product Description</h3>
-              <p className="text-gray-600 mt-2 leading-relaxed"></p>
+              <p className="text-gray-600 mt-2 leading-relaxed">{product.description}</p>
             </div>
 
             {/* Quantity Selector */}
@@ -119,32 +110,6 @@ const ProductDetail = () => {
               >
                 🛒 Add to Cart
               </button>
-            </div>
-
-            {/* Dropdown Sections */}
-            <div className="mt-10 space-y-4 border-t-1 border-gray-300 pt-3 ">
-              <details className="group">
-                <summary className="font-medium text-gray-800 cursor-pointer flex justify-between items-center border-b-1 border-gray-300 pb-3">
-                  Buying Options
-                  <span className="group-open:rotate-45 transform transition-transform">
-                    <FaPlus />
-                  </span>
-                </summary>
-                <p className="text-gray-600 mt-2 pl-4  border-b-1 border-gray-300 pb-3">
-                  Choose from EMI or cash on delivery.
-                </p>
-              </details>
-              <details className="group">
-                <summary className="font-medium text-gray-800 cursor-pointer flex justify-between items-center  border-b-1 border-gray-300 pb-3">
-                  Shipping & Return Policy
-                  <span className="group-open:rotate-45 transform transition-transform">
-                    <FaPlus />
-                  </span>
-                </summary>
-                <p className="text-gray-600 mt-2 pl-4  border-b-1 border-gray-300 pb-3">
-                  Free returns within 10 days.
-                </p>
-              </details>
             </div>
           </div>
         </div>
