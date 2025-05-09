@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./css/styles.css";
 import Navbar from "./Landing-Page/header";
 import Content from "./Landing-Page/content";
@@ -9,6 +9,7 @@ import RecentlyViewed from "./Landing-Page/content5";
 import Footer from "./Landing-Page/Footer";
 import ProductDetail from "./Product-Page/product-overview";
 import CartPage from "./Product-Page/cart";
+import ProductList from "./Product-Page/product-list"
 const Layout = ({ children }) => {
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -31,15 +32,14 @@ const Layout = ({ children }) => {
 
 const Aerawat = () => {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<><FeaturedProducts /><RecentlyViewed /></>} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/cart" element={<CartPage/>} />
-        </Routes>
-      </Layout>
-    </Router>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<><FeaturedProducts /><RecentlyViewed /></>} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/ProductList" element={<ProductList/>} />
+      </Routes>
+    </Layout>
   );
 };
 

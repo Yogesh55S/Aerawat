@@ -4,7 +4,7 @@ import person from "../assets/person.svg";
 import heart from "../assets/heart.svg";
 import chart from "../assets/chart.svg";
 import search from "../assets/search.svg";
-
+import {Link} from "react-router-dom";
 const Navbar = () => {
   return (
     <>
@@ -39,7 +39,9 @@ const Navbar = () => {
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <img src={person} alt="Person Icon" className="w-6 h-6" />
             <img src={heart} alt="Heart Icon" className="w-6 h-6" />
-            <img src={chart} alt="Chart Icon" className="w-6 h-6" />
+            <Link to="/cart">
+              <img src={chart} alt="Cart Icon" className="w-6 h-6" />
+            </Link>
           </div>
         </div>
 

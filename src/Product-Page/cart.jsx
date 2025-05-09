@@ -19,7 +19,7 @@ const CartPage = () => {
 
     fetchCartData();
   }, []);
-
+ 
   const handleQtyChange = (id, newQty) => {
     setProducts((prevProducts) =>
       prevProducts.map((product) =>

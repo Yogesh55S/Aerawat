@@ -6,6 +6,7 @@ const productSchema = new mongoose.Schema({
   price: { type: Number, required: true }, // Product price
   image: { type: String, required: true }, // Path or URL to the product image
   description: { type: String, required: true }, // Product description
+  inches: { type: Number, required: true },
 });
  
 module.exports = mongoose.model("Product", productSchema);

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Frame from "../assets/Frame.png";
 import "../css/content.css";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const FeaturedProducts = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate(); 
@@ -65,10 +65,10 @@ const FeaturedProducts = () => {
       </div>
 
       <div className="mt-12 flex justify-center">
-        <button className="bg-[#7C1D1D] text-white text-sm font-medium h-14 w-56 rounded-md gap-2 hover:bg-[#5d1515] transition flex items-center justify-center">
+    <Link to="/ProductList"><button className="bg-[#7C1D1D] text-white text-sm font-medium h-14 w-56 rounded-md gap-2 hover:bg-[#5d1515] transition flex items-center justify-center">
           View All Products
           <img src={Frame} alt="Frame logo" className="ml-2" />
-        </button>
+        </button> </Link>
       </div>
     </div>
   );
