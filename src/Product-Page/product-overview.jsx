@@ -23,7 +23,7 @@ const ProductDetail = () => {
         alert("Failed to load product details. Please try again.");
       }
     };
- 
+   
     fetchProduct();
   }, [id]);
 
